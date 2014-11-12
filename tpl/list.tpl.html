@@ -1,0 +1,15 @@
+<?php include(TPL_PATH.'header.tpl.html'); ?>
+
+<h1><?php
+    echo $title;
+?></h1>
+
+<ul>
+<?php
+    foreach ($list as $item) {
+        echo "<li><a href=\"video/{$item->guid}.mp4\">{$item->fullTitle}.mp4</a></li>";
+    }
+?>
+</ul>
+
+<?php include(TPL_PATH.'footer.tpl.html'); ?>

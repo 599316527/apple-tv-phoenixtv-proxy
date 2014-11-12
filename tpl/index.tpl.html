@@ -1,0 +1,13 @@
+<?php include(TPL_PATH.'header.tpl.html'); ?>
+
+<h1>節目列表</h1>
+
+<ul>
+<?php
+    foreach ($_PROGRAMS as $key => $program) {
+        echo "<li><a href=\"program/{$key}/\">{$program['title']}</a></li>";
+    }
+?>
+</ul>
+
+<?php include(TPL_PATH.'footer.tpl.html'); ?>

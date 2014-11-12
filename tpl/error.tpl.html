@@ -1,0 +1,17 @@
+<?php include(TPL_PATH.'header.tpl.html'); ?>
+
+<h1>發生錯誤</h1>
+
+<p><?php
+    echo $code;
+    echo ' ';
+    echo $text;
+?></p>
+
+<p><?php
+    if ($message) {
+        echo $message;
+    }
+?></p>
+
+<?php include(TPL_PATH.'footer.tpl.html'); ?>
