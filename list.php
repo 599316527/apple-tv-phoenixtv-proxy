@@ -4,7 +4,7 @@ require_once('config.php');
 
 $key = getParam('program');
 
-if (!key) {
+if (!$key) {
     throwError('400');
 }
 if (!isset($_PROGRAMS[$key])) {

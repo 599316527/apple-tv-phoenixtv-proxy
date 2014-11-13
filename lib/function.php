@@ -52,19 +52,41 @@ function cURL($url) {
 }
 
 
-
+/**
+ * 获取视频列表
+ * @param  String $guid
+ * @return Array
+ */
 function getVideoList($guid) {
-    $url = str_replace('${guid}', $guid, LIST_URL);
-    $ret = cURL($url);
-    $ret = substr($ret, 21, -37);
-    $json = json_decode($ret);
+    $filename = str_replace('/', '-', $guid);
+    $cache = new Cache('list/' . $filename);
+    if ($cache->isExpires()) {
+        $url = str_replace('${guid}', $guid, LIST_URL);
+        $ret = cURL($url);
+        $ret = substr($ret, 21, -37);
+        $json = json_decode($ret);
+        $cache->write($json);
+    } else {
+        $json = $cache->read();
+    }
     return $json->dataList;
 }
 
+/**
+ * 获取视频信息
+ * @param  String $guid
+ * @return Array
+ */
 function getVideoData($guid) {
-    $url = str_replace('${guid}', $guid, VIDEO_URL);
-    $ret = cURL($url);
-    $ret = substr($ret, 12, -21);
-    $json = json_decode($ret);
+    $cache = new Cache('video/' . $guid);
+    if ($cache->isExist()) {
+        $json = $cache->read();
+    } else {
+        $url = str_replace('${guid}', $guid, VIDEO_URL);
+        $ret = cURL($url);
+        $ret = substr($ret, 12, -21);
+        $json = json_decode($ret);
+        $cache->write($json);
+    }
     return $json;
 }

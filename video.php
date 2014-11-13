@@ -4,7 +4,7 @@ require_once('config.php');
 
 $guid = getParam('guid');
 
-if (!guid) {
+if (!$guid) {
     throwError('400');
 }
 
