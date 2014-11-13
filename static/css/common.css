@@ -34,8 +34,9 @@ ul li a:hover {
     font-size: 14px;
 }
 .header .logo {
-    float: right;
-    margin-right: 10px;
+    position: absolute;
+    top: 5px;
+    right: 8px;
     padding-left: 20px;
     background: url(Phoenix_Chinese.svg) no-repeat 0 center;
     background-size: 16px auto;
