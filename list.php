@@ -13,7 +13,7 @@ if (!isset($_PROGRAMS[$key])) {
 $program = $_PROGRAMS[$key];
 
 $title = $program['title'];
-$list = getVideoList($program['guid']);
+$list = getVideoList($program['column_id']);
 
 if (empty($list)) {
     throwError('404', '節目列表為空');

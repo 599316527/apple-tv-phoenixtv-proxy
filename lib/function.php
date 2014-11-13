@@ -57,10 +57,10 @@ function cURL($url) {
  * @param  String $guid
  * @return Array
  */
-function getVideoList($guid) {
-    $filename = str_replace('/', '-', $guid);
-    $cache = new Cache('list/' . $filename);
+function getVideoList($id, $page=1) {
+    $cache = new Cache('list/' . $id);
     if ($cache->isExpires()) {
+        $guid = CPID . "/{$id}-{$page}";
         $url = str_replace('${guid}', $guid, LIST_URL);
         $ret = cURL($url);
         $ret = substr($ret, 21, -37);
