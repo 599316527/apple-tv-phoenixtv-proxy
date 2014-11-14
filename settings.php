@@ -7,7 +7,7 @@ define('TPL_PATH', ROOT_PATH.'tpl/');
 define('CACHE_PATH', ROOT_PATH.'cache/');
 define('CACHE_AGE', 3600 * 6);
 
-define('STATIC_PATH', '/tools/atv/apple-tv-phoenixtv-proxy/');
+define('STATIC_PATH', '/tools/atv/apple-tv-phoenixtv-proxy/static/');
 
 date_default_timezone_set("Asia/Shanghai");
 
