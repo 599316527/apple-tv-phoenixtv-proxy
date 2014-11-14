@@ -1,6 +1,6 @@
 <?php
 
-require_once('config.php');
+require_once('settings.php');
 
 
 include(TPL_PATH.'index.tpl.html');

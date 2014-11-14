@@ -1,16 +1,5 @@
 <?php
 
-define('ROOT_PATH', dirname(__FILE__).'/');
-define('LIB_PATH', ROOT_PATH.'lib/');
-define('TPL_PATH', ROOT_PATH.'tpl/');
-
-define('CACHE_PATH', ROOT_PATH.'cache/');
-define('CACHE_AGE', 3600 * 6);
-
-
-define('STATIC_PATH', '/tools/atv/apple-tv-phoenixtv-proxy/');
-
-
 define('CPID', 'd5f1032b-fe8b-4fbf-ab6b-601caa9480eb');
 define('USER_AGENT', 'Mozilla/5.0 (iPad; CPU OS 5_1 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) Version/5.1 Mobile/9B176 Safari/7534.48.3');
 // guid 為 {CPID}/{$column_id}-{$page}
@@ -26,7 +15,7 @@ $_PROGRAMS = array(
         'title' => '鏘鏘三人行',
         'column_id' => '48'
     ),
-    'fydh' => array(
+    'wdsz' => array(
         'title' => '問答神州',
         'column_id' => '20'
     ),
@@ -71,9 +60,3 @@ $_PROGRAMS = array(
         'column_id' => '1704'
     )
 );
-
-
-date_default_timezone_set("Asia/Shanghai");
-
-require_once(LIB_PATH.'cache.php');
-require_once(LIB_PATH.'function.php');
