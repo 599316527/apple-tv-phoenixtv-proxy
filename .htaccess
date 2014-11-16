@@ -2,6 +2,6 @@ Options +FollowSymLinks
 
 RewriteEngine on
 RewriteRule video/([^\.]+).mp4$ video.php?guid=$1  [NC,L]
-RewriteRule program/([^\.]+)/$ list.php?program=$1  [NC,L]
+RewriteRule program/([^/]+)/(\d+)/$ list.php?program=$1&page=$2  [NC,L]
 
 

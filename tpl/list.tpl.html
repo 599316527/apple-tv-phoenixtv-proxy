@@ -12,4 +12,16 @@
 ?>
 </ul>
 
+<div class="page-navi">
+<?php
+    $prevPage = $page - 1;
+    $nextPage = $page + 1;
+    if ($prevPage > 0) {
+        echo "<a href=\"../{$prevPage}/\" target=\"_self\">上一页</a>";
+    }
+?>
+    <a href="../<?php echo $nextPage; ?>/" target="_self">下一页</a>
+    <div class="clearfix"></div>
+</div>
+
 <?php include(TPL_PATH.'footer.tpl.html'); ?>

@@ -30,6 +30,10 @@ ul li a:hover {
     color: #333;
 }
 
+.clearfix {
+    clear: both;
+}
+
 .header {
     font-size: 14px;
 }
@@ -55,4 +59,20 @@ ul li a:hover {
 .container h1 {
     margin-left: 20px;
 }
+
+.page-navi {
+    margin: 8px 0 15px 0;
+}
+.page-navi a {
+    display: block;
+    float: left;
+    width: 50%;
+    height: 20px;
+    padding: 4px 0;
+    text-align: center;
+    text-decoration: none;
+    color: #9c9c9c;
+}
+
+
 

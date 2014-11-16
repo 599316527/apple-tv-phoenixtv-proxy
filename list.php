@@ -3,6 +3,7 @@
 require_once('settings.php');
 
 $key = getParam('program');
+$page = getParam('page');
 
 if (!$key) {
     throwError('400');
@@ -10,10 +11,13 @@ if (!$key) {
 if (!isset($_PROGRAMS[$key])) {
     throwError('404');
 }
+if (!$page) {
+    $page = 1;
+}
 $program = $_PROGRAMS[$key];
 
 $title = $program['title'];
-$list = getVideoList($program['column_id']);
+$list = getVideoList($program['column_id'], $page);
 
 if (empty($list)) {
     throwError('404', '節目列表為空');

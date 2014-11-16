@@ -58,7 +58,7 @@ function cURL($url) {
  * @return Array
  */
 function getVideoList($id, $page=1) {
-    $cache = new Cache('list/' . $id);
+    $cache = new Cache("list/{$id}-{$page}");
     if ($cache->isExpires()) {
         $guid = CPID . "/{$id}-{$page}";
         $url = str_replace('${guid}', $guid, LIST_URL);
