@@ -9,7 +9,7 @@ function isExistParam($key) {
 }
 
 function getParam($key) {
-    return isExistParam($key) ? $_GET[$key] : null;
+    return isExistParam($key) ? trim($_GET[$key]) : null;
 }
 
 $HTTP_STATUS_TEXT = array(

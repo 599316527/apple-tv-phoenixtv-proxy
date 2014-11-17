@@ -1,0 +1,13 @@
+<?php include(TPL_PATH.'header.tpl.html'); ?>
+
+<h1><?php echo $title; ?></h1>
+
+<ul>
+<?php
+    for ($i = 1; $i <= 20; ++$i) {
+        echo "<li><a href=\"{$i}/\">第{$i}頁</a></li>";
+    }
+?>
+</ul>
+
+<?php include(TPL_PATH.'footer.tpl.html'); ?>
