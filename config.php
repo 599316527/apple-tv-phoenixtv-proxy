@@ -65,7 +65,7 @@ $_PROGRAMS = array(
     ),
     'jqgcs' => array(
         'title' => '军情观察室',
-        'column_id' => '66'
+        'column_id' => '32'
     ),
     'jscj' => array(
         'title' => '金石财经',

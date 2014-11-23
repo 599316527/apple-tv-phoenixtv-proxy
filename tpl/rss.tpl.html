@@ -1,0 +1,45 @@
+<?php
+    $siteUrl = 'https://hk1229.cn/demo/phoenixtv/';
+?>
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0">
+    <channel>
+        <atom:link href="<?php echo $siteUrl ?>podcast/<?php echo $key ?>" type="application/rss+xml" rel="self" />
+        <copyright>Copyright © 2014 凤凰卫视</copyright>
+        <language>zh-cn</language>
+        <link><?php echo $siteUrl ?></link>
+        <title><?php echo $title ?></title>
+        <itunes:keywords>凤凰卫视</itunes:keywords>
+        <itunes:author>Kyle He</itunes:author>
+        <itunes:subtitle><?php echo $title ?></itunes:subtitle>
+        <itunes:summary><?php echo $title ?> - 凤凰卫视</itunes:summary>
+        <description><?php echo $title ?> - 凤凰卫视</description>
+        <itunes:image href="http://ww2.sinaimg.cn/large/661b7679gw1emli61psg0j20go0gqdgv.jpg" />
+        <itunes:owner>
+            <itunes:name>Kyle He</itunes:name>
+            <itunes:email>x@hk1229.cn</itunes:email>
+        </itunes:owner>
+
+<?php
+    foreach ($list as $item) {
+        echo <<<ITEM
+<item>
+    <title>{$item->fullTitle}</title>
+    <itunes:author>Kyle He</itunes:author>
+    <itunes:subtitle>{$item->wordText}</itunes:subtitle>
+    <itunes:summary>{$item->fullTitle}</itunes:summary>
+    <itunes:image href="{$item->img}" />
+    <enclosure url="{$siteUrl}video/{$item->guid}.mp4" type="video/mp4" length=""/>
+    <guid>{$item->guid}</guid>
+    <pubDate>{$item->imageText}</pubDate>
+    <itunes:duration>32:23</itunes:duration>
+    <link>{$item->link}</link>
+    <description>{$item->fullTitle}</description>
+</item>
+
+ITEM;
+    }
+?>
+
+    </channel>
+</rss>
