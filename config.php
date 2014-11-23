@@ -58,5 +58,22 @@ $_PROGRAMS = array(
     'zgsdcj' => array(
         'title' => '中国深度财经',
         'column_id' => '1704'
-    )
+    ),
+    'fhzbc' => array(
+        'title' => '凤凰早班车',
+        'column_id' => '47'
+    ),
+    'jqgcs' => array(
+        'title' => '军情观察室',
+        'column_id' => '66'
+    ),
+    'jscj' => array(
+        'title' => '金石财经',
+        'column_id' => '7'
+    ),
+    'ddfhr' => array(
+        'title' => '点滴凤凰人',
+        'column_id' => '1692'
+    ),
 );
+
