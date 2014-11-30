@@ -14,6 +14,8 @@ $program = $_PROGRAMS[$key];
 
 $title = $program['title'];
 $list = getVideoList($program['column_id']);
+$isExplicit = isset($program['explicit']) && $program['explicit'];
+$album = isset($program['album']) ? $program['album'] : PODCAST_ALBUM;
 
 if (empty($list)) {
     throwError('404', '節目列表為空');

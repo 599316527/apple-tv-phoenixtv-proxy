@@ -1,5 +1,8 @@
 <?php
     $siteUrl = 'https://hk1229.cn/demo/phoenixtv/';
+    if ($isExplicit) {
+        $explicit = '<itunes:explicit>yes</itunes:explicit>';
+    }
 ?>
 <?xml version="1.0" encoding="UTF-8"?>
 <rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0">
@@ -14,11 +17,12 @@
         <itunes:subtitle><?php echo $title ?></itunes:subtitle>
         <itunes:summary><?php echo $title ?> - 凤凰卫视</itunes:summary>
         <description><?php echo $title ?> - 凤凰卫视</description>
-        <itunes:image href="http://ww4.sinaimg.cn/large/661b7679gw1emljrey8mej218g18g42n.jpg" />
+        <itunes:image href="<?php echo $album ?>" />
         <itunes:owner>
             <itunes:name>Kyle He</itunes:name>
             <itunes:email>x@hk1229.cn</itunes:email>
         </itunes:owner>
+        <?php echo $explicit ?>
 
 <?php
     foreach ($list as $item) {
@@ -28,11 +32,11 @@
     <itunes:author>Kyle He</itunes:author>
     <itunes:subtitle>{$item->wordText}</itunes:subtitle>
     <itunes:summary>{$item->fullTitle}</itunes:summary>
-    <itunes:image href="http://ww4.sinaimg.cn/large/661b7679gw1emljrey8mej218g18g42n.jpg" />
     <enclosure url="{$siteUrl}video/{$item->guid}.mp4" type="video/mp4" length=""/>
     <guid>{$item->guid}</guid>
     <pubDate>{$item->imageText}</pubDate>
-    <itunes:duration>32:23</itunes:duration>
+    <itunes:duration>30:00</itunes:duration>
+    <itunes:isClosedCaptioned>no</itunes:isClosedCaptioned>
     <link>{$item->link}</link>
     <description>{$item->fullTitle}</description>
 </item>

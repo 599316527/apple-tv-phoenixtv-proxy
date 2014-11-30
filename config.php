@@ -6,14 +6,20 @@ define('USER_AGENT', 'Mozilla/5.0 (iPad; CPU OS 5_1 like Mac OS X) AppleWebKit/5
 define('LIST_URL', 'http://v.ifeng.com/docvlist/${guid}.js?callback=jsonp6');
 define('VIDEO_URL', 'http://dyn.v.ifeng.com/cmpp/video_msg_ipad.js?msg=${guid}&param=playermsg&callback=jsonp3');
 
+// 默認 Podcast 封面
+define('PODCAST_ALBUM', 'http://ww4.sinaimg.cn/large/661b7679gw1emljrey8mej218g18g42n.jpg');
+
 $_PROGRAMS = array(
     'kjbfz' => array(
-        'title' => '開卷八分鐘',
-        'column_id' => '439'
+        'title' => '开卷八分钟',
+        'column_id' => '439',
+        'album' => 'http://ww1.sinaimg.cn/large/661b7679gw1emsehlvrq3j218g18g443.jpg'
     ),
     'qqsrx' => array(
-        'title' => '鏘鏘三人行',
-        'column_id' => '48'
+        'title' => '锵锵三人行',
+        'column_id' => '48',
+        'explicit' => true,
+        'album' => 'http://ww1.sinaimg.cn/large/661b7679gw1emsdsxo6zpj218g18gk3c.jpg'
     ),
     'wdsz' => array(
         'title' => '問答神州',
