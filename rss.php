@@ -10,6 +10,9 @@ if (!$key) {
 if (!isset($_PROGRAMS[$key])) {
     throwError('404');
 }
+
+increaseCount(TYPE_RSS, $key);
+
 $program = $_PROGRAMS[$key];
 
 $title = $program['title'];

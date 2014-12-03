@@ -11,6 +11,9 @@ if (!$key) {
 if (!isset($_PROGRAMS[$key])) {
     throwError('404');
 }
+
+increaseCount(TYPE_LIST, $key);
+
 if (!$page) {
     $page = 1;
 }

@@ -8,6 +8,8 @@ if (!$guid) {
     throwError('400');
 }
 
+increaseCount(TYPE_VIDEO, $guid);
+
 $data = getVideoData($guid);
 
 if ($data->videoplayurl) {

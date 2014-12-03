@@ -90,3 +90,39 @@ function getVideoData($guid) {
     }
     return $json;
 }
+
+/**
+ * 統計加 1
+ * @param Int $type  統計類型
+ * @param String $guid
+ * @return Boolean
+ */
+function increaseCount($type, $guid) {
+    require_once(LIB_PATH.'class.db.php');
+    $db = new DB(DB_DSN, DB_USERNAME, DB_PASSWORD);
+    $ret = $db->select(DB_TABLE, 'guid=:guid AND type=:type', array(
+        ':guid' => $guid,
+        ':type' => $type
+    ), 'id, count');
+    if (empty($ret)) {
+        $ret = $db->insert(DB_TABLE, array(
+            'type' => $type,
+            'guid' => $guid,
+            'count' => 1
+        ));
+    } else {
+        $ret = $ret[0];
+        $ret = $db->update(DB_TABLE, array(
+            'count' => $ret['count'] + 1
+        ), 'id=:id', array(
+            ':id' => $ret['id']
+        ));
+    }
+    return $ret;
+}
+
+
+
+
+
+
