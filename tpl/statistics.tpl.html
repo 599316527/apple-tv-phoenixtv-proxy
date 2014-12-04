@@ -18,50 +18,52 @@
 
 <h1><?php echo $title; ?></h1>
 
-<div class="navi-banner">
-    <select class="navi-select select-type">
-    <?php
-        foreach ($typeList as $id => $name) {
-            $_id = $id + 1;
-            $selected = $currentType === $_id ? 'selected' : '';
-            echo "<option value=\"{$_id}\" {$selected}>{$name}</option>";
-        }
-    ?>
-    </select>
-    <select class="navi-select select-page">
-    <?php
-        for ($i = 1; $i <= $totalPages; ++$i) {
-            $selected = $currentPage === $i ? 'selected' : '';
-            echo "<option value=\"{$i}\" {$selected}>第{$i}頁</option>";
-        }
-    ?>
-    </select>
-</div>
+<div class="container">
+    <div class="navi-banner">
+        <select class="navi-select select-type">
+        <?php
+            foreach ($typeList as $id => $name) {
+                $_id = $id + 1;
+                $selected = $currentType === $_id ? 'selected' : '';
+                echo "<option value=\"{$_id}\" {$selected}>{$name}</option>";
+            }
+        ?>
+        </select>
+        <select class="navi-select select-page">
+        <?php
+            for ($i = 1; $i <= $totalPages; ++$i) {
+                $selected = $currentPage === $i ? 'selected' : '';
+                echo "<option value=\"{$i}\" {$selected}>第{$i}頁</option>";
+            }
+        ?>
+        </select>
+    </div>
 
-<table border="1" width="100%" cellspacing="0">
-    <thead>
-        <tr>
-            <th>guid</th>
-            <th>count</th>
-            <th>latest time</th>
-        </tr>
-    </thead>
-    <tbody>
-<?php
-    foreach ($records as $record) {
-        $count = number_format($record['count']);
-        $latestTime = date(DATE_FORMAT, $record['latest_time']);
-        echo <<<TR
+    <table border="1" width="100%" cellspacing="0">
+        <thead>
+            <tr>
+                <th>guid</th>
+                <th>count</th>
+                <th>latest time</th>
+            </tr>
+        </thead>
+        <tbody>
+    <?php
+        foreach ($records as $record) {
+            $count = number_format($record['count']);
+            $latestTime = date(DATE_FORMAT, $record['latest_time']);
+            echo <<<TR
 <tr>
     <td>{$record['guid']}</td>
     <td>{$count}</td>
     <td>{$latestTime}</td>
 </tr>
 TR;
-    }
-?>
-    </tbody>
-</table>
+        }
+    ?>
+        </tbody>
+    </table>
+</div>
 
 <script type="text/javascript">
     var selectType = document.querySelector('.select-type');
