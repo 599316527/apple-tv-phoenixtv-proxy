@@ -11,11 +11,12 @@ define('WEBSITE_PATH', '/tools/atv/apple-tv-phoenixtv-proxy/');
 define('STATIC_PATH', WEBSITE_PATH.'static/');
 
 define('DATE_FORMAT', 'M j H:i');
+define('MAX_DISPLAY_COUNT', 20);
 
 define('DB_DSN', 'mysql:host=localhost;dbname=atv');
 define('DB_TABLE', 'statistics');
-define('DB_USERNAME', 'username');
-define('DB_PASSWORD', 'password');
+define('DB_USERNAME', 'root');
+define('DB_PASSWORD', 'root');
 
 define('TYPE_VIDEO', 1);
 define('TYPE_RSS', 2);

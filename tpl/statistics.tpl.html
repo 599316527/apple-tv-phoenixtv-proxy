@@ -18,7 +18,7 @@
 
 <h1><?php echo $title; ?></h1>
 
-<div>
+<div class="navi-banner">
     <select class="navi-select select-type">
     <?php
         foreach ($typeList as $id => $name) {
@@ -64,15 +64,19 @@ TR;
 </table>
 
 <script type="text/javascript">
-    var selects = document.querySelectorAll('.navi-select');
-    var count = 0;
-    function _switch() {
-        location.href = location.href.replace(/\d+/g, function() {
-            return selects[count++ % selects.length].value;
-        });
+    var selectType = document.querySelector('.select-type');
+    var selectPage = document.querySelector('.select-page');
+    function _switch(type, page) {
+        location.href = location.href.replace(
+            /\d+\/\d+\/?$/,
+            type + '/' + page + '/'
+        );
     }
-    Array.prototype.forEach.call(selects, function(select) {
-        select.addEventListener('change', _switch);
+    selectType.addEventListener('change', function() {
+        _switch(selectType.value, 1);
+    });
+    selectPage.addEventListener('change', function() {
+        _switch(selectType.value, selectPage.value);
     });
 </script>
 

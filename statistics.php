@@ -1,7 +1,5 @@
 <?php
 
-define('MAX_DISPLAY_COUNT', 3);
-
 require_once('settings.php');
 
 $currentType = getParam('type');
