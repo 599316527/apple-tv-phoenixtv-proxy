@@ -7,7 +7,7 @@ apple-tv-phoenixtv-proxy
 
 把這個加到「個人服務器」里就能看了
 ```
-鳳凰衛視   http://hk1229.cn/demo/phoenixtv/
+鳳凰衛視   https://hk1229.cn/demo/phoenixtv/
 ```
 如果要看更多的往期視頻，請在網址最後加上 `?more=yes`
 

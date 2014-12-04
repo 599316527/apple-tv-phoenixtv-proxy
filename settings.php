@@ -7,7 +7,10 @@ define('TPL_PATH', ROOT_PATH.'tpl/');
 define('CACHE_PATH', ROOT_PATH.'cache/');
 define('CACHE_AGE', 3600 * 6);
 
-define('STATIC_PATH', '/tools/atv/apple-tv-phoenixtv-proxy/static/');
+define('WEBSITE_PATH', '/tools/atv/apple-tv-phoenixtv-proxy/');
+define('STATIC_PATH', WEBSITE_PATH.'static/');
+
+define('DATE_FORMAT', 'M j H:i');
 
 define('DB_DSN', 'mysql:host=localhost;dbname=atv');
 define('DB_TABLE', 'statistics');

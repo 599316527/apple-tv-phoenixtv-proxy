@@ -100,6 +100,7 @@ function getVideoData($guid) {
 function increaseCount($type, $guid) {
     require_once(LIB_PATH.'class.db.php');
     $db = new DB(DB_DSN, DB_USERNAME, DB_PASSWORD);
+    if (!$db) return 0;
     $ret = $db->select(DB_TABLE, 'guid=:guid AND type=:type', array(
         ':guid' => $guid,
         ':type' => $type
@@ -108,12 +109,14 @@ function increaseCount($type, $guid) {
         $ret = $db->insert(DB_TABLE, array(
             'type' => $type,
             'guid' => $guid,
-            'count' => 1
+            'count' => 1,
+            'latest_time' => time()
         ));
     } else {
         $ret = $ret[0];
         $ret = $db->update(DB_TABLE, array(
-            'count' => $ret['count'] + 1
+            'count' => $ret['count'] + 1,
+            'latest_time' => time()
         ), 'id=:id', array(
             ':id' => $ret['id']
         ));

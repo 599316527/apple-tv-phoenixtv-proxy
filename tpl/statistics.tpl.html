@@ -1,0 +1,79 @@
+<?php include(TPL_PATH.'header.tpl.html'); ?>
+
+<style type="text/css">
+    table {
+        border-collapse: collapse;
+        margin: 20px 0;
+    }
+    td {
+        padding: 6px 10px;
+    }
+    thead {
+        background-color: #f90;
+    }
+    tbody tr:nth-child(2n) {
+        background-color: #fed;
+    }
+</style>
+
+<h1><?php echo $title; ?></h1>
+
+<div>
+    <select class="navi-select select-type">
+    <?php
+        foreach ($typeList as $id => $name) {
+            $_id = $id + 1;
+            $selected = $currentType === $_id ? 'selected' : '';
+            echo "<option value=\"{$_id}\" {$selected}>{$name}</option>";
+        }
+    ?>
+    </select>
+    <select class="navi-select select-page">
+    <?php
+        for ($i = 1; $i <= $totalPages; ++$i) {
+            $selected = $currentPage === $i ? 'selected' : '';
+            echo "<option value=\"{$i}\" {$selected}>第{$i}頁</option>";
+        }
+    ?>
+    </select>
+</div>
+
+<table border="1" width="100%" cellspacing="0">
+    <thead>
+        <tr>
+            <th>guid</th>
+            <th>count</th>
+            <th>latest time</th>
+        </tr>
+    </thead>
+    <tbody>
+<?php
+    foreach ($records as $record) {
+        $count = number_format($record['count']);
+        $latestTime = date(DATE_FORMAT, $record['latest_time']);
+        echo <<<TR
+<tr>
+    <td>{$record['guid']}</td>
+    <td>{$count}</td>
+    <td>{$latestTime}</td>
+</tr>
+TR;
+    }
+?>
+    </tbody>
+</table>
+
+<script type="text/javascript">
+    var selects = document.querySelectorAll('.navi-select');
+    var count = 0;
+    function _switch() {
+        location.href = location.href.replace(/\d+/g, function() {
+            return selects[count++ % selects.length].value;
+        });
+    }
+    Array.prototype.forEach.call(selects, function(select) {
+        select.addEventListener('change', _switch);
+    });
+</script>
+
+<?php include(TPL_PATH.'footer.tpl.html'); ?>
