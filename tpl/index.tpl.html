@@ -4,13 +4,11 @@
 
 <ul>
 <?php
+    $urlTpl = $wantMore ?
+        '<li><a href="%sprogram/%s/">%s</a></li>' :
+        '<li><a href="%sprogram/%s/1/">%s</a></li>';
     foreach ($_PROGRAMS as $key => $program) {
-        if ($wantMore) {
-            echo "<li><a href=\"program/{$key}/\">{$program['title']}</a></li>";
-        } else {
-            echo "<li><a href=\"program/{$key}/1/\">{$program['title']}</a></li>";
-        }
-
+        echo sprintf($urlTpl, WEBSITE_PATH, $key, $program['title']);
     }
 ?>
 </ul>

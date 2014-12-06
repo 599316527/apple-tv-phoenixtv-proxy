@@ -12,14 +12,14 @@ if (!isset($_PROGRAMS[$key])) {
     throwError('404');
 }
 
-increaseCount(TYPE_LIST, $key);
-
 if (!$page) {
     $page = 1;
 }
 $program = $_PROGRAMS[$key];
-
 $title = $program['title'];
+
+increaseCount(TYPE_LIST, $title);
+
 $list = getVideoList($program['column_id'], $page);
 
 if (empty($list)) {

@@ -10,7 +10,7 @@ define('CACHE_AGE', 3600 * 6);
 define('WEBSITE_PATH', '/tools/atv/apple-tv-phoenixtv-proxy/');
 define('STATIC_PATH', WEBSITE_PATH.'static/');
 
-define('DATE_FORMAT', 'M j, Y H:i');
+define('DATE_FORMAT', 'Y/m/d H:i:s');
 define('MAX_DISPLAY_COUNT', 20);
 
 define('DB_DSN', 'mysql:host=localhost;dbname=atv');
