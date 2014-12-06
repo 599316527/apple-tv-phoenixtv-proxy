@@ -104,15 +104,17 @@ ul a:hover {
   text-decoration: none;
 }
 .table-statistics .ttitle {
-  width: 58%;
+  width: 60%;
 }
 .table-statistics .tcount {
-  width: 18%;
+  width: 15%;
 }
 .table-statistics .ttime {
-  width: 24%;
+  width: 25%;
 }
-.table-statistics .tbody .tcount,
-.table-statistics .tbody .ttime {
+.table-statistics .tbody .tcount {
   text-align: right;
+}
+.table-statistics .tbody .ttime {
+  text-align: center;
 }
