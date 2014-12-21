@@ -26,5 +26,6 @@ date_default_timezone_set("Asia/Shanghai");
 
 require_once(ROOT_PATH.'config.php');
 
+require_once(LIB_PATH.'class.http.php');
 require_once(LIB_PATH.'class.cache.php');
 require_once(LIB_PATH.'function.php');

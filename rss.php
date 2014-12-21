@@ -5,10 +5,10 @@ require_once('settings.php');
 $key = getParam('program');
 
 if (!$key) {
-    throwError('400');
+    HTTP::throwError('400');
 }
 if (!isset($_PROGRAMS[$key])) {
-    throwError('404');
+    HTTP::throwError('404');
 }
 
 increaseCount(TYPE_RSS, $key);
@@ -21,7 +21,7 @@ $isExplicit = isset($program['explicit']) && $program['explicit'];
 $album = isset($program['album']) ? $program['album'] : PODCAST_ALBUM;
 
 if (empty($list)) {
-    throwError('404', '節目列表為空');
+    HTTP::throwError('404', '節目列表為空');
 }
 
 header('Content-Type:application/xml; charset=utf-8');

@@ -8,7 +8,7 @@ $currentPage = getParam('page');
 $currentPage = intval($currentPage);
 
 if (!$currentType || !$currentPage || $currentPage < 1) {
-    throwError('400');
+    HTTP::throwError('400');
 }
 
 $title = '統計信息';
@@ -17,7 +17,7 @@ $typeList = array('視頻', '播客', '列表');
 require_once(LIB_PATH.'class.db.php');
 $db = new DB(DB_DSN, DB_USERNAME, DB_PASSWORD);
 if (!$db) {
-    throwError('500', '连接数据库失败');
+    HTTP::throwError('500', '连接数据库失败');
 }
 
 $ret = $db->select(DB_TABLE, 'type=:type', array(
@@ -25,7 +25,7 @@ $ret = $db->select(DB_TABLE, 'type=:type', array(
 ), 'count(*) ct');
 
 if (empty($ret) || $ret[0]['ct'] === 0) {
-    throwError('404');
+    HTTP::throwError('404');
 } else {
     $totalRecordCount = $ret[0]['ct'];
 }
@@ -42,7 +42,7 @@ $records = $db->select(
 );
 
 if (empty($ret)) {
-    throwError('404');
+    HTTP::throwError('404');
 }
 
 include(TPL_PATH.'statistics.tpl.html');

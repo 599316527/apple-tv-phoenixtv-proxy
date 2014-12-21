@@ -12,28 +12,6 @@ function getParam($key) {
     return isExistParam($key) ? trim($_GET[$key]) : null;
 }
 
-$HTTP_STATUS_TEXT = array(
-    '400' => 'Bad Request',
-    '403' => 'Forbidden',
-    '404' => 'Not Found',
-    '500' => 'Internal Server Error'
-);
-function getHttpStatusTextByCode($code) {
-    global $HTTP_STATUS_TEXT;
-    return $HTTP_STATUS_TEXT[$code] ? $HTTP_STATUS_TEXT[$code] : '';
-}
-function throwError($code, $message = '') {
-    $text = getHttpStatusTextByCode($code);
-    header("HTTP/1.1 {$number} {$text}");
-    include(TPL_PATH.'error.tpl.html');
-    exit();
-}
-
-function redirect($url) {
-    header("HTTP/1.1 302 Found");
-    header('Location: ' . $url);
-}
-
 /**
  * GET请求
  * @param  String $url 请求的网址
