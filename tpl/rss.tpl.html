@@ -8,7 +8,7 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0">
     <channel>
         <atom:link href="<?php echo $siteUrl ?>podcast/<?php echo $key ?>" type="application/rss+xml" rel="self" />
-        <copyright>Copyright © 2014 凤凰卫视</copyright>
+        <copyright>Copyright © <?php echo date('Y'); ?> 凤凰卫视</copyright>
         <language>zh-cn</language>
         <link><?php echo $siteUrl ?></link>
         <title><?php echo $title ?></title>
@@ -16,9 +16,11 @@
         <itunes:author>Kyle He</itunes:author>
         <itunes:subtitle><?php echo $title ?></itunes:subtitle>
         <itunes:summary><![CDATA[
-            <p><?php echo $title ?> - 凤凰卫视</p>
-            <p>如果你喜歡此 Podcast，麻煩請至 iTunes Store 上給個 5 星評價，谢谢 ⭐️⭐️⭐️⭐️⭐</p>
-            <p>同時也歡迎與你的朋友分享此 Podcast</p>
+            <p>⭐️求5星评价，不过随意啦，你开心就好😂</p>
+            <p>👉求关注
+                🌀微博: <a href="http://weibo.com/327303000" target="_blank">@FE何凯</a>
+                🐦Twitter: <a href="https://twitter.com/kyleehee" target="_blank">@kyleehee</a>
+            </p>
         ]]></itunes:summary>
         <description><?php echo $title ?> - 凤凰卫视</description>
         <itunes:image href="<?php echo $album ?>" />
