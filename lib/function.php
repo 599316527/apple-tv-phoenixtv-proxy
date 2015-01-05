@@ -29,6 +29,23 @@ function cURL($url) {
     return $output;
 }
 
+/**
+ * 去重
+ * @param  Object $dataList 原始視頻列表
+ * @return Object           去重后的視頻列表
+ */
+function removeDuplicatedVideos($dataList) {
+    $guids = array();
+    $cleaned = array();
+    foreach ($dataList as $episode) {
+        $key = $episode->guid;
+        if (!isset($guids[$key])) {
+            $guids[$key] = true;
+            $cleaned[] = $episode;
+        }
+    }
+    return (object)$cleaned;
+}
 
 /**
  * 获取视频列表
@@ -43,6 +60,7 @@ function getVideoList($id, $page=1) {
         $ret = cURL($url);
         $ret = substr($ret, 21, -37);
         $json = json_decode($ret);
+        $json->dataList = removeDuplicatedVideos($json->dataList);
         $cache->write($json);
     } else {
         $json = $cache->read();

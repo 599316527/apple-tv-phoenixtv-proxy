@@ -13,14 +13,14 @@ $_PROGRAMS = array(
     'kjbfz' => array(
         'title' => '开卷八分钟',
         'column_id' => '439',
-        'album' => 'http://ww1.sinaimg.cn/large/661b7679gw1emsehlvrq3j218g18g443.jpg'
+        'album' => 'http://ww3.sinaimg.cn/large/661b7679gw1enumd0emlhj218g18g0xu.jpg'
     ),
     'qqsrx' => array(
         'title' => '锵锵三人行',
         'column_id' => '48',
         'explicit' => true,
         // 'album' => 'http://ww2.sinaimg.cn/large/661b7679gw1en738oqfhxj218g18g0vu.jpg'
-        'album' => 'http://ww2.sinaimg.cn/large/661b7679gw1entgit7zrvj218g18gwgp.jpg'
+        'album' => 'http://ww1.sinaimg.cn/large/661b7679gw1enujz7hgxwj218g18gjtl.jpg'
     ),
     'wdsz' => array(
         'title' => '問答神州',
