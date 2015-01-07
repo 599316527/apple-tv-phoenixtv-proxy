@@ -17,7 +17,7 @@ $program = $_PROGRAMS[$key];
 
 $title = $program['title'];
 $list = getVideoList($program['column_id']);
-$isExplicit = isset($program['explicit']) && $program['explicit'];
+$explicit = isset($program['explicit']) && $program['explicit'] ? 'yes' : 'clean';
 $album = isset($program['album']) ? $program['album'] : PODCAST_ALBUM;
 
 if (empty($list)) {

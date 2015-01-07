@@ -9,6 +9,11 @@ function isExistParam($key) {
 }
 
 function getParam($key) {
+    global $argc;
+    if ($argc) {
+        global $argv;
+        parse_str(implode('&', array_slice($argv, 1)), $_GET);
+    }
     return isExistParam($key) ? trim($_GET[$key]) : null;
 }
 

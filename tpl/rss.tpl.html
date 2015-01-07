@@ -1,8 +1,5 @@
 <?php
     $siteUrl = 'https://hk1229.cn/demo/phoenixtv/';
-    if ($isExplicit) {
-        $explicit = '<itunes:explicit>yes</itunes:explicit>';
-    }
 ?>
 <?xml version="1.0" encoding="UTF-8"?>
 <rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0">
@@ -29,7 +26,7 @@
             <itunes:name>Kyle He</itunes:name>
             <itunes:email>x@hk1229.cn</itunes:email>
         </itunes:owner>
-        <?php echo $explicit ?>
+        <itunes:explicit><?php echo $explicit ?></itunes:explicit>
 
 <?php
     foreach ($list as $item) {
