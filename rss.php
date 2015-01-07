@@ -13,6 +13,11 @@ if (!isset($_PROGRAMS[$key])) {
 
 increaseCount(TYPE_RSS, $key);
 
+if (in_array($key, $_ARCHIVED_PROGRAMS)) {
+    HTTP::redirect(WEBSITE_PATH .'archive/rss/'. $key .'.rss.xml');
+    exit;
+}
+
 $program = $_PROGRAMS[$key];
 
 $title = $program['title'];
