@@ -11,7 +11,7 @@ define('PODCAST_ALBUM', 'http://ww4.sinaimg.cn/large/661b7679gw1emljrey8mej218g1
 
 $_PROGRAMS = array(
     'kjbfz' => array(
-        'title' => '开卷八分钟',
+        'title' => '开卷八分钟(停播)',
         'column_id' => '439',
         'album' => 'http://ww3.sinaimg.cn/large/661b7679gw1enumd0emlhj218g18g0xu.jpg'
     ),

@@ -1,0 +1,39 @@
+<?php include(TPL_PATH.'header.tpl.html'); ?>
+
+<h1>生成置頂數據</h1>
+
+<ul class="form">
+    <li><select id="column">
+        <option value="-1">--</option>
+    <?php
+        foreach ($_PROGRAMS as $program) {
+            echo "<option value=\"{$program['column_id']}\">{$program['title']}</option>";
+        }
+    ?>
+    </select></li>
+    <li><input type="text" id="title" placeholder="名稱*"/></li>
+    <li><input type="date" id="imageText" placeholder="时间*"/></li>
+    <li><input type="text" id="guid" placeholder="GUID*"/></li>
+    <li><input type="url" id="link" placeholder="链接"/></li>
+    <li><input type="url" id="img" placeholder="图片"/></li>
+    <li><input type="url" id="videourl" placeholder="視頻地址*"/></li>
+    <li>
+        <button id="generate-button">生成JSON</button>
+        <button id="publish-button">投放</button>
+    </li>
+</ul>
+
+<div class="ad-json">
+    <div class="column">
+        <div class="title" id="ad-meta-path">cache/ad/</div>
+        <div><textarea id="ad-meta-value"></textarea></div>
+    </div>
+    <div class="column">
+        <div class="title" id="ad-video-path">cache/video/</div>
+        <div><textarea id="ad-video-value"></textarea></div>
+    </div>
+    <div class="clearfix"></div>
+</div>
+
+<?php include(TPL_PATH.'footer.tpl.html'); ?>
+<script type="text/javascript" src="<?php echo STATIC_PATH; ?>js/generate-ad-json.js"></script>

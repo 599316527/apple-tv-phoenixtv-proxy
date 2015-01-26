@@ -39,9 +39,9 @@ function cURL($url) {
  * @param  Object $dataList 原始視頻列表
  * @return Object           去重后的視頻列表
  */
-function removeDuplicatedVideos($dataList) {
+function removeDuplicatedVideos($dataList, $append=null) {
     $guids = array();
-    $cleaned = array();
+    $cleaned = (array)$append;
     foreach ($dataList as $episode) {
         $key = $episode->guid;
         if (!isset($guids[$key])) {
@@ -53,8 +53,20 @@ function removeDuplicatedVideos($dataList) {
 }
 
 /**
+ * 获取广告列表
+ * @param  Int    $id
+ * @return Array
+ */
+function getAdList($id) {
+    $cache = new Cache("ad/{$id}");
+    $json = $cache->read();
+    return $json->dataList;
+}
+
+/**
  * 获取视频列表
- * @param  String $guid
+ * @param  Int    $id
+ * @param  Int    $page
  * @return Array
  */
 function getVideoList($id, $page=1) {
@@ -65,7 +77,10 @@ function getVideoList($id, $page=1) {
         $ret = cURL($url);
         $ret = substr($ret, 21, -37);
         $json = json_decode($ret);
-        $json->dataList = removeDuplicatedVideos($json->dataList);
+        $json->dataList = removeDuplicatedVideos(
+            $json->dataList,
+            getAdList($id)
+        );
         $cache->write($json);
     } else {
         $json = $cache->read();
