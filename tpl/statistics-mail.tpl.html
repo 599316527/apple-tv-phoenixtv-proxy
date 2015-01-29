@@ -1,0 +1,34 @@
+
+<p><?php echo $typeList[$currentType] ?></p>
+
+<table border="1" cellpadding="8" cellspacing="1">
+    <thead>
+        <tr>
+            <th>標題</th>
+            <th>計數</th>
+            <th>更新時間</th>
+        </tr>
+    </thead>
+    <tbody>
+<?php
+    $urlTpl = $currentType === TYPE_VIDEO ?
+        "<a href=\"%1\$svideo/%2\$s.mp4\" target=\"_blank\">%2\$s</a>" : null;
+    foreach ($records as $record) {
+        $title = $urlTpl ?
+            sprintf($urlTpl, WEBSITE_PATH, $record['guid']):
+            $record['guid'];
+        $count = number_format($record['count']);
+        $latestTime = date(DATE_FORMAT, $record['latest_time']);
+        echo <<<TROW
+<tr>
+    <td>{$title}</td>
+    <td>{$count}</td>
+    <td>{$latestTime}</td>
+</tr>
+TROW;
+    }
+?>
+    </tbody>
+</table>
+
+<p style="font-size: 14px; color: #666;">生成時間：<?php echo whatTimeIsIt() ?></p>
