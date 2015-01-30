@@ -13,21 +13,22 @@ require_once(LIB_PATH.'PHPMailer/class.phpmailer.php');
 $mail = new PHPMailer;
 
 $mail->isSMTP();
-$mail->Host = SMTP_SERVER;
-$mail->SMTPAuth = SMTP_AUTH;
-$mail->Username = SMTP_USERNAME;
-$mail->Password = SMTP_PASSWORD;
-$mail->SMTPSecure = 'tls';
+$mail->Host = getParam('smtp_host');
+$mail->SMTPAuth = getParam('smtp_auth');
+$mail->Username = getParam('smtp_username');
+$mail->Password = getParam('smtp_password');
+$mail->SMTPSecure = getParam('smtp_secure');
 
-$mail->From = MAIL_FROM;
-$mail->FromName = MAIL_FROM_NAME;
-$mail->addAddress(MAIL_RECEIVER);
+$mail->From = getParam('mail_from');
+$mail->FromName = getParam('mail_from_name');
+$receiver = getParam('mail_receiver');
+$mail->addAddress($receiver, getParam('mail_receiver_name'));
 
-$mail->CharSet = 'UTF-8';
-$mail->WordWrap = 80;
+$mail->CharSet = getParam('mail_charset') || 'UTF-8';
+$mail->WordWrap = getParam('mail_word_wrap') || 80;
 $mail->isHTML(true);
 
-$mail->Subject = 'PODCAST訂閱量統計 - ' . $now;
+$mail->Subject = 'Podcast Statistics Report @ ' . $now;
 $mail->Body    = $mailContent;
 $mail->AltBody = strip_tags($mailContent);
 
@@ -36,7 +37,7 @@ $ret = $mail->send();
 echo $now;
 echo "\t";
 if ($ret) {
-    echo 'Sent to ' . MAIL_RECEIVER;
+    echo 'Sent to ' . $receiver;
 } else {
     echo $mail->ErrorInfo;
 }

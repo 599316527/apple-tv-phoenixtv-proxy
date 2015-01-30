@@ -22,14 +22,6 @@ define('TYPE_VIDEO', 1);
 define('TYPE_RSS', 2);
 define('TYPE_LIST', 3);
 
-define('SMTP_SERVER', 'smtp.163.com');
-define('SMTP_USERNAME', 'username');
-define('SMTP_PASSWORD', 'passwd');
-define('MAIL_FROM', 'from@from.from');
-define('MAIL_FROMNAME', 'FromName');
-define('MAIL_RECEIVER', 'receiver@receive.com');
-define('MAIL_PREFIX', '[MailPrefix]');
-
 date_default_timezone_set("Asia/Shanghai");
 
 require_once(ROOT_PATH.'config.php');
