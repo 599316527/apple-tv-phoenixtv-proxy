@@ -12,15 +12,16 @@ define('PODCAST_ALBUM', 'http://ww4.sinaimg.cn/large/661b7679gw1emljrey8mej218g1
 $_PROGRAMS = array(
     'kjbfz' => array(
         'title' => '开卷八分钟(停播)',
+        'real_title' => '开卷八分钟',
         'column_id' => '439',
         'album' => 'http://ww3.sinaimg.cn/large/661b7679gw1enumd0emlhj218g18g0xu.jpg'
     ),
     'qqsrx' => array(
         'title' => '锵锵三人行',
+        'real_title' => '锵锵三人行',
         'column_id' => '48',
         'explicit' => true,
-        // 'album' => 'http://ww2.sinaimg.cn/large/661b7679gw1en738oqfhxj218g18g0vu.jpg'
-        'album' => 'http://ww1.sinaimg.cn/large/661b7679gw1enujz7hgxwj218g18gjtl.jpg'
+        'album' => 'http://ww3.sinaimg.cn/large/661b7679gw1eoub7r7frpj218g18g76m.jpg'
     ),
     'wdsz' => array(
         'title' => '問答神州',
@@ -52,7 +53,8 @@ $_PROGRAMS = array(
     ),
     'lyyy' => array(
         'title' => '鲁豫有约',
-        'column_id' => '40'
+        'column_id' => '40',
+        'album' => 'http://ww4.sinaimg.cn/large/661b7679gw1eouc2u079mj218g18g0zw.jpg'
     ),
     'mnsfc' => array(
         'title' => '美女私房菜',
