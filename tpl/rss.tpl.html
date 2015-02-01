@@ -1,5 +1,6 @@
 <?php
     $siteUrl = 'https://hk1229.cn/demo/phoenixtv/';
+    $realTitle = isset($program['real_title']) ? $program['real_title'] : $title;
 ?>
 <?xml version="1.0" encoding="UTF-8"?>
 <rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0">
@@ -30,9 +31,10 @@
 
 <?php
     foreach ($list as $item) {
+        $title = str_replace($realTitle, '', $item->fullTitle);
         echo <<<ITEM
 <item>
-    <title>{$item->fullTitle}</title>
+    <title>{$title}</title>
     <itunes:author>Kyle He</itunes:author>
     <itunes:subtitle>{$item->wordText}</itunes:subtitle>
     <itunes:summary>{$item->fullTitle}</itunes:summary>
