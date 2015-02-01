@@ -61,4 +61,17 @@ class Cache {
         return !!$content;
     }
 
+    /**
+     * 推遲緩存失效時間
+     * @return boolean
+     */
+    public function postponeExpiration() {
+        $data = $this->read();
+        if ($data) {
+            return $this->write($data);
+        } else {
+            return false;
+        }
+    }
+
 }

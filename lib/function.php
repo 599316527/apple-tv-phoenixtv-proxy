@@ -77,11 +77,18 @@ function getVideoList($id, $page=1) {
         $ret = cURL($url);
         $ret = substr($ret, 21, -37);
         $json = json_decode($ret);
-        $json->dataList = removeDuplicatedVideos(
-            $json->dataList,
-            getAdList($id)
-        );
-        $cache->write($json);
+        if (empty($json->dataList)) {
+            if ($cache->postponeExpiration()) {
+                echo 'postponeExpiration';
+                $json = $cache->read();
+            }
+        } else {
+            $json->dataList = removeDuplicatedVideos(
+                $json->dataList,
+                getAdList($id)
+            );
+            $cache->write($json);
+        }
     } else {
         $json = $cache->read();
     }
