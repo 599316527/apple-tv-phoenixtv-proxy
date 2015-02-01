@@ -10,6 +10,5 @@ php -f statistics-mail.php \
     mail_from_name=PodcastStatisticsRobot \
     mail_receiver=78910112@163.com \
     mail_receiver_name=Kyle \
-    mail_charset=utf-8\
         >> mail-report.log
 

@@ -24,8 +24,8 @@ $mail->FromName = getParam('mail_from_name');
 $receiver = getParam('mail_receiver');
 $mail->addAddress($receiver, getParam('mail_receiver_name'));
 
-$mail->CharSet = getParam('mail_charset') || 'UTF-8';
-$mail->WordWrap = getParam('mail_word_wrap') || 80;
+$mail->CharSet = 'UTF-8';
+$mail->WordWrap = 80;
 $mail->isHTML(true);
 
 $mail->Subject = 'Podcast Statistics Report @ ' . $now;
