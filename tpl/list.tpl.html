@@ -6,7 +6,7 @@
 
 <ul>
 <?php
-    $urlTpl = '<li><a href="%svideo/%s.mp4">%s</a></li>';
+    $urlTpl = '<li><a class="title" href="%svideo/%s.mp4">%s</a></li>';
     foreach ($list as $item) {
         echo sprintf($urlTpl, WEBSITE_PATH, $item->guid, $item->fullTitle);
     }

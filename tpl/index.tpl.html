@@ -4,11 +4,15 @@
 
 <ul>
 <?php
-    $urlTpl = $wantMore ?
-        '<li><a href="%sprogram/%s/">%s</a></li>' :
-        '<li><a href="%sprogram/%s/1/">%s</a></li>';
+    $urlTpl = '<li><a class="title" href="%sprogram/%s/';
+    if (!$wantMore) $urlTpl .= '1/';
+    $urlTpl .= '">%s</a><a class="btn btn-podcast" href="%spodcast/%s/">RSS</a></li>';
+    // echo $urlTpl;
     foreach ($_PROGRAMS as $key => $program) {
-        echo sprintf($urlTpl, WEBSITE_PATH, $key, $program['title']);
+        echo sprintf($urlTpl,
+            WEBSITE_PATH, $key, $program['title'],
+            WEBSITE_PATH, $key
+        );
     }
 ?>
 </ul>

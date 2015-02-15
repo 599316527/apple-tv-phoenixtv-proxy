@@ -21,17 +21,35 @@ ul li {
   margin: 0;
   display: block;
   padding: 5px 0 5px 20px;
+  position: relative;
 }
-ul a {
+ul .title {
   display: block;
+  margin-right: 40px;
   color: #666;
   text-decoration: none;
   -webkit-transition: color 500ms ease;
   -moz-transition: color 500ms ease;
   transition: color 500ms ease;
 }
-ul a:hover {
+ul .title:hover {
   color: #333;
+}
+ul .btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  height: 20px;
+  line-height: 20px;
+  font-size: 14px;
+  text-decoration: none;
+  color: #5D0DB7;
+  padding: 0 4px;
+}
+ul .btn-podcast {
+  padding-left: 24px;
+  background: url(podcast-icon.png) no-repeat 4px center;
+  background-size: 16px;
 }
 .clearfix {
   clear: both;
