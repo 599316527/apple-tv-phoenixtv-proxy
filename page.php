@@ -2,7 +2,7 @@
 
 require_once('settings.php');
 
-$key = getParam('program');
+$key = Query::getParam('program');
 
 if (!$key) {
     HTTP::throwError('400');

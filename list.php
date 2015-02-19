@@ -2,8 +2,8 @@
 
 require_once('settings.php');
 
-$key = getParam('program');
-$page = getParam('page');
+$key = Query::getParam('program');
+$page = Query::getParam('page');
 
 if (!$key) {
     HTTP::throwError('400');

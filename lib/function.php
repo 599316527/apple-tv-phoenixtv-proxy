@@ -4,19 +4,6 @@ function whatTimeIsIt() {
     return date('M j H:i');
 }
 
-function isExistParam($key) {
-    return isset($_GET[$key]) && !empty($_GET[$key]);
-}
-
-function getParam($key) {
-    global $argc;
-    if ($argc) {
-        global $argv;
-        parse_str(implode('&', array_slice($argv, 1)), $_GET);
-    }
-    return isExistParam($key) ? trim($_GET[$key]) : null;
-}
-
 /**
  * GET请求
  * @param  String $url 请求的网址
@@ -60,7 +47,7 @@ function removeDuplicatedVideos($dataList, $append=null) {
 function getAdList($id) {
     $cache = new Cache("ad/{$id}");
     $json = $cache->read();
-    return $json->dataList;
+    return $json ? $json->dataList : null;
 }
 
 /**

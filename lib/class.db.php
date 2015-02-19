@@ -125,10 +125,14 @@ class DB extends PDO {
 		}
 	}
 
-	public function select($table, $where="", $bind="", $fields="*") {
+	public function select($table, $where="", $bind="", $fields="*", $order=null, $limit=null) {
 		$sql = "SELECT " . $fields . " FROM " . $table;
 		if(!empty($where))
 			$sql .= " WHERE " . $where;
+		if (!empty($order))
+			$sql .= " ORDER BY " . $order;
+		if (!empty($limit))
+			$sql .= " LIMIT " . $limit;
 		$sql .= ";";
 		return $this->run($sql, $bind);
 	}

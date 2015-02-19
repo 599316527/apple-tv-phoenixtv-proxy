@@ -2,7 +2,7 @@
 
 require_once('settings.php');
 
-$guid = getParam('guid');
+$guid = Query::getParam('guid');
 
 if (!$guid) {
     HTTP::throwError('400');
