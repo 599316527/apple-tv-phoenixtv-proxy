@@ -1,5 +1,5 @@
 <?php
-    $siteUrl = 'https://hk1229.cn/demo/phoenixtv/';
+    $siteUrl = SITE_URL;
     $realTitle = isset($program['real_title']) ? $program['real_title'] : $title;
 ?>
 <?xml version="1.0" encoding="UTF-8"?>
@@ -28,28 +28,3 @@
             <itunes:email>x@hk1229.cn</itunes:email>
         </itunes:owner>
         <itunes:explicit><?php echo $explicit ?></itunes:explicit>
-
-<?php
-    foreach ($list as $item) {
-        $title = str_replace($realTitle, '', $item->fullTitle);
-        echo <<<ITEM
-<item>
-    <title>{$title}</title>
-    <itunes:author>Kyle He</itunes:author>
-    <itunes:subtitle>{$item->wordText}</itunes:subtitle>
-    <itunes:summary>{$item->fullTitle}</itunes:summary>
-    <enclosure url="{$siteUrl}video/{$item->guid}.mp4" type="video/mp4" length=""/>
-    <guid>{$item->guid}</guid>
-    <pubDate>{$item->imageText}</pubDate>
-    <itunes:duration>30:00</itunes:duration>
-    <itunes:isClosedCaptioned>no</itunes:isClosedCaptioned>
-    <link>{$item->link}</link>
-    <description>{$item->fullTitle}</description>
-</item>
-
-ITEM;
-    }
-?>
-
-    </channel>
-</rss>

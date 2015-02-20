@@ -20,7 +20,7 @@ if (!$db) {
     HTTP::throwError('500', '连接数据库失败');
 }
 
-$ret = $db->select(DB_TABLE, 'type=:type', array(
+$ret = $db->select(DB_TABLE_STAT, 'type=:type', array(
     ':type' => $currentType
 ), 'count(*) ct');
 
@@ -36,7 +36,7 @@ $countNumber = MAX_DISPLAY_COUNT;
 
 // $db->setErrorCallbackFunction('echo');
 $records = $db->select(
-    DB_TABLE,
+    DB_TABLE_STAT,
     "type=:type ORDER BY latest_time DESC LIMIT {$startCount},{$countNumber}",
     array(':type' => $currentType)
 );

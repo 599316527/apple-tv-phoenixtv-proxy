@@ -1,0 +1,25 @@
+<?php
+
+    include(TPL_PATH.'rss/header.tpl.html');
+
+    foreach ($list as $item) {
+        $title = str_replace($realTitle, '', $item['word_text']);
+        echo <<<ITEM
+<item>
+    <title>{$title}</title>
+    <itunes:author>Kyle He</itunes:author>
+    <itunes:subtitle>{$item['word_text']}</itunes:subtitle>
+    <itunes:summary>{$item['word_text']}</itunes:summary>
+    <enclosure url="{$siteUrl}audio/data/audio/{$item['guid']}.mp3" type="audio/mp3" length=""/>
+    <guid>{$item['guid']}</guid>
+    <pubDate>{$item['image_text']}</pubDate>
+    <itunes:duration>23:00</itunes:duration>
+    <itunes:isClosedCaptioned>no</itunes:isClosedCaptioned>
+    <link>{$item['link']}</link>
+    <description>{$item['word_text']}</description>
+</item>
+
+ITEM;
+    }
+
+    include(TPL_PATH.'rss/footer.tpl.html');

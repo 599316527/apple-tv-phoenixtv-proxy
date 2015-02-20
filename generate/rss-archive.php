@@ -38,11 +38,3 @@ include(TPL_PATH.'rss.tpl.html');
 
 
 
-function object2array($obj) {
-    return json_decode(json_encode($obj), true);
-}
-function array2object($obj) {
-    return json_decode(json_encode($obj), false);
-}
-
-

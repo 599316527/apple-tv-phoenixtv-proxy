@@ -4,6 +4,13 @@ function whatTimeIsIt() {
     return date('M j H:i');
 }
 
+function object2array($obj) {
+    return json_decode(json_encode($obj), true);
+}
+function array2object($obj) {
+    return json_decode(json_encode($obj), false);
+}
+
 /**
  * GET请求
  * @param  String $url 请求的网址
@@ -108,15 +115,14 @@ function getVideoData($guid) {
  * @return Boolean
  */
 function increaseCount($type, $guid) {
-    require_once(LIB_PATH.'class.db.php');
-    $db = new DB(DB_DSN, DB_USERNAME, DB_PASSWORD);
-    if (!$db) return 0;
-    $ret = $db->select(DB_TABLE, 'guid=:guid AND type=:type', array(
+    require_once(LIB_PATH.'class.storage.php');
+    $db = Storage::getInstance();
+    $ret = $db->select(DB_TABLE_STAT, 'guid=:guid AND type=:type', array(
         ':guid' => $guid,
         ':type' => $type
     ), 'id, count');
     if (empty($ret)) {
-        $ret = $db->insert(DB_TABLE, array(
+        $ret = $db->insert(DB_TABLE_STAT, array(
             'type' => $type,
             'guid' => $guid,
             'count' => 1,
@@ -124,7 +130,7 @@ function increaseCount($type, $guid) {
         ));
     } else {
         $ret = $ret[0];
-        $ret = $db->update(DB_TABLE, array(
+        $ret = $db->update(DB_TABLE_STAT, array(
             'count' => $ret['count'] + 1,
             'latest_time' => time()
         ), 'id=:id', array(

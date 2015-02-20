@@ -30,4 +30,4 @@ if (empty($list)) {
 }
 
 header('Content-Type:application/xml; charset=utf-8');
-include(TPL_PATH.'rss.tpl.html');
+include(TPL_PATH.'rss/video.tpl.html');
