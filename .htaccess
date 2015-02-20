@@ -1,7 +1,8 @@
 Options +FollowSymLinks
 
-
 RewriteEngine on
+
+RewriteBase /tools/atv/apple-tv-phoenixtv-proxy/
 
 RewriteRule video/([^\.]+).mp4$ video.php?guid=$1  [NC,L]
 
@@ -9,7 +10,8 @@ RewriteRule program/([^/]+)/$ page.php?program=$1  [NC,L]
 RewriteRule program/([^/]+)/(\d+)/$ list.php?program=$1&page=$2  [NC,L]
 
 RewriteRule podcast/([^/]+)/$ rss.php?program=$1  [NC,L]
-RewriteRule podcast/([^\.]+)\.xml$ rss.php?program=$1  [NC,L]
+RewriteRule ^podcast/([^\./]+)\.xml$ rss.php?program=$1  [NC,L]
+RewriteRule ^podcast/audio/([^\.]+)\.xml$ audio/rss.php?program=$1  [NC,L]
 
 RewriteRule count/(\d+)/(\d+)/?$ statistics/main.php?type=$1&page=$2  [NC,L]
 
