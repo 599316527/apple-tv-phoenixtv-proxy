@@ -7,7 +7,7 @@ $storage = Storage::getInstance();
 
 foreach ($list as $video) {
     $guid = $video->guid;
-    $ret = $storage->select(DB_TABLE_VIDEOS, 'guid=:guid', array(
+    $ret = $storage->select(DB_TABLE_VIDEOS, 'guid=:guid AND has_audio=0', array(
         ':guid' => $guid
     ), 'video_url');
     if (!empty($ret) && $ret[0]['video_url']) {

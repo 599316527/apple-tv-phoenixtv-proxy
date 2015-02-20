@@ -1,5 +1,6 @@
 <?php
 
+require_once(__DIR__.'/../settings.php');
 require_once(ROOT_PATH.'audio/getProgramCid.inc.php');
 
 $page = 1;

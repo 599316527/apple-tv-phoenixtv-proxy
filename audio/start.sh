@@ -10,6 +10,9 @@ videopath=${homepath}/data/video
 audiopath=${homepath}/data/audio
 podcastpath=${homepath}/data/podcast
 
+echo 'Saving list to database...'
+php -f ${homepath}/saveListToDb.php program=qqsrx
+
 echo 'Finding videos which need to be filled audio url...'
 php -f ${homepath}/findVideosNeedFillAudioUrl.php program=qqsrx > ${homepath}/videos.list
 echo '---------------------------------------------------'

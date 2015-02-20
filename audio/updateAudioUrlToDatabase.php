@@ -21,7 +21,7 @@ foreach (explode("\n", $content) as $row) {
     ));
     echo $guid; echo "\t";
     echo $hasAudio ? 'has' : 'has not'; echo ' audio'; echo "\t";
-    echo $ret ? 'saved' : 'can not save'; echo ' to database';
+    echo $ret ? 'saved' : 'can not save'; echo ' to database'; echo "\n";
 }
 
 
