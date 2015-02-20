@@ -7,7 +7,7 @@ define('TPL_PATH', ROOT_PATH.'tpl/');
 define('CACHE_PATH', ROOT_PATH.'cache/');
 define('CACHE_AGE', 3600 * 6);
 
-define('SITE_URL', 'https://hk1229.cn/demo/phoenixtv/');
+define('WEBSITE_DOMAIN', 'https://hk1229.cn');
 define('WEBSITE_PATH', '/tools/atv/apple-tv-phoenixtv-proxy/');
 define('STATIC_PATH', WEBSITE_PATH.'static/');
 

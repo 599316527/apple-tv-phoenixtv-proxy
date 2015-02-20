@@ -21,8 +21,8 @@ $_PROGRAMS = array(
         'real_title' => '锵锵三人行',
         'column_id' => '48',
         'explicit' => true,
-        'album' => 'http://ww3.sinaimg.cn/large/661b7679gw1eoub7r7frpj218g18g76m.jpg',
-        'audio_album' => 'http://ww3.sinaimg.cn/large/661b7679gw1eoub7r7frpj218g18g76m.jpg'
+        'album' => 'http://ww1.sinaimg.cn/large/661b7679gw1epg9bo3ivaj218g18gjtp.jpg',
+        'audio_album' => 'http://ww4.sinaimg.cn/large/661b7679gw1epg9c07d1rj218g18gwgt.jpg'
     ),
     'wdsz' => array(
         'title' => '問答神州',
