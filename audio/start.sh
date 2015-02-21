@@ -10,6 +10,8 @@ videopath=${homepath}/data/video
 audiopath=${homepath}/data/audio
 podcastpath=${homepath}/data/podcast
 
+date
+echo '==================================================='
 echo 'Saving list to database...'
 php -f ${homepath}/saveListToDb.php program=qqsrx
 

@@ -9,7 +9,14 @@
     <title>{$title}</title>
     <itunes:author>Kyle He</itunes:author>
     <itunes:subtitle>{$item['word_text']}</itunes:subtitle>
-    <itunes:summary>{$item['word_text']}</itunes:summary>
+    <itunes:summary><![CDATA[
+        <p>{$item['word_text']}</p>
+        <p>⭐️求5星评价，不过随意啦，你开心就好😂</p>
+        <p>👉求关注<ul>
+            <li>🌀微博: <a href="http://weibo.com/327303000" target="_blank">@FE何凯</a></li>
+            <li>🐦Twitter: <a href="https://twitter.com/kyleehee" target="_blank">@kyleehee</a></li>
+        </ul></p>
+    ]]></itunes:summary>
     <enclosure url="{$siteUrl}audio/data/audio/{$item['guid']}.mp3" type="audio/mp3" length=""/>
     <guid>{$item['guid']}</guid>
     <pubDate>{$item['image_text']}</pubDate>
