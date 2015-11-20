@@ -21,6 +21,7 @@ if (in_array($key, $_ARCHIVED_PROGRAMS)) {
 $program = $_PROGRAMS[$key];
 
 $title = $program['title'];
+$title .= '📺';
 $list = getVideoList($program['column_id']);
 $explicit = isset($program['explicit']) && $program['explicit'] ? 'yes' : 'clean';
 $album = isset($program['album']) ? $program['album'] : PODCAST_ALBUM;

@@ -9,4 +9,5 @@ if (!$key) {
 
 increaseCount(TYPE_RSS, 'audio/' . $key);
 
-HTTP::redirect(WEBSITE_PATH .'audio/data/podcast/'. $key .'.xml');
+header('Content-Type:application/xml; charset=utf-8');
+echo file_get_contents(ROOT_PATH .'audio/data/podcast/'. $key .'.xml');

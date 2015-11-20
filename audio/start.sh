@@ -39,3 +39,4 @@ echo 'Updating rss cache...'
 php -f ${homepath}/exportPodcastXml.php program=qqsrx > ${podcastpath}/qqsrx.xml
 
 echo 'DONE'
+echo ''

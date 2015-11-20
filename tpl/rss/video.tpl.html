@@ -4,6 +4,7 @@
 
     foreach ($list as $item) {
         $title = str_replace($realTitle, '', $item->fullTitle);
+        $pubDate = getPubDate($item->imageText);
         echo <<<ITEM
 <item>
     <title>{$title}</title>
@@ -12,8 +13,8 @@
     <itunes:summary>{$item->fullTitle}</itunes:summary>
     <enclosure url="{$siteUrl}video/{$item->guid}.mp4" type="video/mp4" length=""/>
     <guid>{$item->guid}</guid>
-    <pubDate>{$item->imageText}</pubDate>
-    <itunes:duration>30:00</itunes:duration>
+    <pubDate>{$pubDate}</pubDate>
+    <itunes:duration>23:00</itunes:duration>
     <itunes:isClosedCaptioned>no</itunes:isClosedCaptioned>
     <link>{$item->link}</link>
     <description>{$item->fullTitle}</description>

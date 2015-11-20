@@ -4,6 +4,7 @@
 
     foreach ($list as $item) {
         $title = str_replace($realTitle, '', $item['word_text']);
+        $pubDate = getPubDate($item['image_text']);
         echo <<<ITEM
 <item>
     <title>{$title}</title>
@@ -19,7 +20,7 @@
     ]]></itunes:summary>
     <enclosure url="{$siteUrl}audio/data/audio/{$item['guid']}.mp3" type="audio/mp3" length=""/>
     <guid>{$item['guid']}</guid>
-    <pubDate>{$item['image_text']}</pubDate>
+    <pubDate>{$pubDate}</pubDate>
     <itunes:duration>23:00</itunes:duration>
     <itunes:isClosedCaptioned>no</itunes:isClosedCaptioned>
     <link>{$item['link']}</link>

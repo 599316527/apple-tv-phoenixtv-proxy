@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>鏘鏘三人行 Podcast 訂閱地址</title>
+        <style type="text/css">
+.p-img {
+    cursor: pointer;
+}
+h2 {
+    margin-top: 1.8em;
+}
+li {
+    line-height: 1.5;
+}
+.qrcode {
+    padding: 10px;
+    background: white;
+}
+.subscribe-address li {
+    position: relative;
+}
+.subscribe-address li .qrcode {
+    display: none;
+    position: absolute;
+    left: 44px;
+    z-index: 9;
+}
+.subscribe-address a:hover + .qrcode {
+    display: block;
+}
+.tip {
+    font-size: 12px;
+    color: #ccc;
+}
+        </style>
+    </head>
+    <body>
+<h1>鏘鏘三人行 Podcast</h1>
+<p class="tip">就醬吧，懶得美化了</p>
+
+<h2>訂閱地址</h2>
+<ul class="subscribe-address">
+    <li>
+        視頻版
+        <a href="https://hk1229.cn/demo/phoenixtv/podcast/qqsrx.xml"
+            target="_blank">https://hk1229.cn/demo/phoenixtv/podcast/qqsrx.xml</a>
+    </li>
+    <li>
+        音頻版
+        <a href="https://hk1229.cn/demo/phoenixtv/podcast/audio/qqsrx.xml"
+            target="_blank">https://hk1229.cn/demo/phoenixtv/podcast/audio/qqsrx.xml</a>
+    </li>
+</ul>
+
+<h2>為什麼在 iTunes Store 里找不到？</h2>
+<p>不知道為啥，三番五次被下架，終於這次發郵件也不給重新上架了...</p>
+<p>
+    <img class="p-img" style="width:30%;" src="http://ww2.sinaimg.cn/large/661b7679gw1eqia5x4cjuj215k0y218c.jpg"
+        alt="mail-from-itunes-store-podcast" />
+</p>
+    </body>
+    <script type="text/javascript" src="https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/cache/ecom/esl/2-0-6/esl.js"></script>
+    <script type="text/javascript">
+
+document.querySelector('.p-img').addEventListener('click', function () {
+    if (this.dataset.large === 'true') {
+        this.style.width = '30%';
+        this.dataset.large = false;
+    } else {
+        this.style.width = '100%';
+        this.dataset.large = true;
+    }
+});
+
+require.config({
+    paths: {
+        'qrcode': 'https://bs.baidu.com/adtest/c5ef94cd8f8dde538b814736c269307d'
+    }
+});
+require(['qrcode'], function (QRCode) {
+    Array.prototype.forEach.call(
+        document.querySelectorAll('.subscribe-address a'),
+        function (addr) {
+            var qrcode = document.createElement('DIV');
+            qrcode.className = 'qrcode';
+            qrcode.appendChild(new QRCode({
+                width: 180,
+                height: 180,
+                text: addr.href
+            }));
+            addr.parentNode.appendChild(qrcode);
+        }
+    )
+});
+
+    </script>
+</html>

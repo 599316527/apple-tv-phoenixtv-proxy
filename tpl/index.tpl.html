@@ -4,9 +4,13 @@
 
 <ul>
 <?php
-    $urlTpl = '<li><a class="title" href="%sprogram/%s/';
+    $urlTpl = '<li><a ';
+    if ($showRss) $urlTpl .= 'class="title" ';
+    $urlTpl .= 'href="%sprogram/%s/';
     if (!$wantMore) $urlTpl .= '1/';
-    $urlTpl .= '">%s</a><a class="btn btn-podcast" href="%spodcast/%s/">RSS</a></li>';
+    $urlTpl .= '">%s</a>';
+    if ($showRss) $urlTpl .= '<a class="btn btn-podcast" href="%spodcast/%s/">RSS</a>';
+    $urlTpl .= '</li>';
     // echo $urlTpl;
     foreach ($_PROGRAMS as $key => $program) {
         echo sprintf($urlTpl,

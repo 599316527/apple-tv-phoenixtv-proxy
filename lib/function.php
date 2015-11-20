@@ -61,9 +61,10 @@ function getAdList($id) {
  * 获取视频列表
  * @param  Int    $id
  * @param  Int    $page
+ * @param  Bool   $hasAd (default: true)
  * @return Array
  */
-function getVideoList($id, $page=1) {
+function getVideoList($id, $page=1, $hasAd=true) {
     $cache = new Cache("list/{$id}-{$page}");
     if ($cache->isExpires()) {
         $guid = CPID . "/{$id}-{$page}";
@@ -79,7 +80,7 @@ function getVideoList($id, $page=1) {
         } else {
             $json->dataList = removeDuplicatedVideos(
                 $json->dataList,
-                getAdList($id)
+                $hasAd ? getAdList($id) : array()
             );
             $cache->write($json);
         }
@@ -140,8 +141,20 @@ function increaseCount($type, $guid) {
     return $ret;
 }
 
-
-
+/**
+ * 生成符合podcast 要求的 pubDate 格式
+ * @param  String $dateStr 2015-11-19
+ * @return String          Thu, 19 Nov 2015 23:00:00 +0800
+ */
+function getPubDate($dateStr) {
+    $ret = preg_match('/(\d{4})-(\d{2})-(\d{2})/', $dateStr, $matches);
+    if ($ret) {
+        $time = mktime(23, 0, 0, $matches[2], $matches[3], $matches[1]);
+        return date('r', $time);
+    } else {
+        return date('r');
+    }
+}
 
 
 
