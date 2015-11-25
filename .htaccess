@@ -5,6 +5,7 @@ RewriteEngine on
 RewriteBase /tools/atv/apple-tv-phoenixtv-proxy/
 
 RewriteRule video/([^\.]+).mp4$ video.php?guid=$1  [NC,L]
+RewriteRule player/([^/]+)/(\d+)?/?$ video.php?guid=$1&player=true&ss=$2  [NC,L]
 
 RewriteRule program/([^/]+)/$ page.php?program=$1  [NC,L]
 RewriteRule program/([^/]+)/(\d+)/$ list.php?program=$1&page=$2  [NC,L]

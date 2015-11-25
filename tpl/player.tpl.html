@@ -1,0 +1,60 @@
+<?php include(TPL_PATH.'header.tpl.html'); ?>
+
+<link rel="stylesheet" type="text/css" href="https://hk1229.cn/demo/h5player/dest/h5-video-player.css"/>
+<style type="text/css">
+h1 {
+    text-align: center;
+}
+.ec-h5-video-player {
+    margin: 10px auto 30px auto;
+}
+</style>
+<h1><?php echo $title; ?></h1>
+<div id="js-player"></div>
+<script src="https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/cache/ecom/esl/2-0-8/esl.js"></script>
+<script type="text/javascript">
+function generateHeightCalculatorByRatio(widthHeightRatio) {
+    var a = widthHeightRatio.match(/^(\d+):(\d+)$/);
+    var ratio = a ? a[2] / a[1] : 9 / 16;
+    return function (width) {
+        return width * ratio;
+    };
+}
+
+function dataConverter(data) {
+    var calculateHeight = generateHeightCalculatorByRatio(data['ratio']);
+    var width = 720;
+    return {
+        'img_url': data['largePoster'],
+        'video_url': data['videoplayurl'],
+        'width': width,
+        'height': calculateHeight(width),
+        'timeOff': data['timeOff']
+    };
+}
+
+require.config({
+    baseUrl: 'https://hk1229.cn/demo/h5player/dest'
+});
+
+(function (data, config, require) {
+    data = dataConverter(data);
+
+    require(['h5-video-player'], function (Player) {
+        var player = new Player('js-player', config, data);
+        player.init();
+        if (data['timeOff']) {
+            player.play();
+            player._player.currentTime = data['timeOff'];
+        }
+    });
+
+})(<?php echo $videoData; ?>, {
+    'eventType': /iPad|iPhone/.test(navigator.userAgent) ? 'touch' : 'mouse',
+    'nativeFullscreen': true,
+    'autoHideControlsTimeout': 1234,
+    'preload': true
+}, require);
+</script>
+
+<?php include(TPL_PATH.'footer.tpl.html'); ?>

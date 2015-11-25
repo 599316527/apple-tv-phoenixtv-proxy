@@ -40,13 +40,17 @@ foreach ($list as $video) {
             echo 'can not access its video url.';
         } else {
             // Save video url
-            $ret = $storage->update(DB_TABLE_VIDEOS, array(
-                'img' => $data->largePoster,
-                'video_url' => $data->videoplayurl,
-                'update_time' => time()
-            ), 'guid=:guid', array(
-                ':guid' => $guid
-            ));
+            if ($data->videoplayurl) {
+                $ret = $storage->update(DB_TABLE_VIDEOS, array(
+                    'img' => $data->largePoster,
+                    'video_url' => $data->videoplayurl,
+                    'update_time' => time()
+                ), 'guid=:guid', array(
+                    ':guid' => $guid
+                ));
+            } else {
+                $ret = false;
+            }
             echo $ret ? 'has saved' : 'can not save'; echo ' video url';
         }
     }
