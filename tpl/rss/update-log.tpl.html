@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+<?php
+    $urlPrefix = WEBSITE_DOMAIN . WEBSITE_PATH;
+?>
+<channel>
+    <title><?php echo $program['title'] ?></title>
+    <link><?php echo $urlPrefix . 'program/'. $key ?></link>
+    <description><?php echo $program['real_title'] ?></description>
+
+    <image>
+        <url><?php echo $program['album'] ?></url>
+    </image>
+    <copyright>Copyright © <?php echo date('Y'); ?> PheonixTV</copyright>
+    <language>zh-cn</language>
+    <webMaster>Kyle He (x@hk1229.cn)</webMaster>
+
+    <pubDate><?php
+        echo date('r', $items[0]['update_time'])
+    ?></pubDate>
+
+    <?php foreach ($items as $item): ?>
+    <item>
+        <guid><?php echo $item['guid'] ?></guid>
+        <title><?php echo $item['word_text'] ?></title>
+        <link><?php echo $item['link'] ?></link>
+        <description><![CDATA[
+            <?php echo $item['word_text'] ?>
+            🌱来源: <?php echo $item['link'] ?>
+            🎥视频: <?php echo "{$urlPrefix}player/{$item['guid']}/" ?>
+            🎙音频: <?php echo "{$urlPrefix}audio/data/audio/{$item['guid']}.mp3" ?>
+        ]]></description>
+        <pubDate><?php echo date('r', $item['update_time']) ?></pubDate>
+    </item>
+    <?php endforeach; ?>
+
+
+</channel>
+
+</rss>

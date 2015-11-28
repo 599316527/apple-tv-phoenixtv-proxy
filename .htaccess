@@ -16,4 +16,5 @@ RewriteRule ^podcast/audio/([^\.]+)\.xml$ audio/rss.php?program=$1  [NC,L]
 
 RewriteRule count/(\d+)/(\d+)/?$ statistics/main.php?type=$1&page=$2  [NC,L]
 
+RewriteRule log/(\w+).xml$ update-log.php?program=$1  [NC,L]
 
