@@ -10,6 +10,7 @@ define('CACHE_AGE', 3600 * 6);
 define('WEBSITE_DOMAIN', 'https://hk1229.cn');
 define('WEBSITE_PATH', '/tools/atv/apple-tv-phoenixtv-proxy/');
 define('STATIC_PATH', WEBSITE_PATH.'static/');
+define('CDN_DOMAIN', 'http://qcdn.adeline.cc');
 
 define('DATE_FORMAT', 'Y/m/d H:i:s');
 define('MAX_DISPLAY_COUNT', 20);

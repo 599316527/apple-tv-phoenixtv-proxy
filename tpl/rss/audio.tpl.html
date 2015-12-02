@@ -1,6 +1,11 @@
 <?php
 
+    $cdnUrl = CDN_DOMAIN . WEBSITE_PATH;
+
     include(TPL_PATH.'rss/header.tpl.html');
+
+    // 使用 cdn feed
+    echo "<itunes:new-feed-url>{$cdnUrl}podcast/audio/{$key}.xml</itunes:new-feed-url>";
 
     foreach ($list as $item) {
         $title = str_replace($realTitle, '', $item['word_text']);
@@ -18,7 +23,7 @@
             <li>🐦Twitter: <a href="https://twitter.com/kyleehee" target="_blank">@kyleehee</a></li>
         </ul></p>
     ]]></itunes:summary>
-    <enclosure url="{$siteUrl}audio/data/audio/{$item['guid']}.mp3" type="audio/mp3" length=""/>
+    <enclosure url="{$cdnUrl}audio/data/audio/{$item['guid']}.mp3" type="audio/mp3" length=""/>
     <guid>{$item['guid']}</guid>
     <pubDate>{$pubDate}</pubDate>
     <itunes:duration>23:00</itunes:duration>
